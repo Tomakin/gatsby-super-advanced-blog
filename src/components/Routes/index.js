@@ -3,12 +3,10 @@ import { Router } from '@reach/router';
 import { navigate } from 'gatsby';
 import Profile from '../Profile';
 import AuthContext from '../../utils/auth_context';
-import PasswordReset from '../Authentication/forms/password_reset';
 import Auth from '../Authentication/auth';
 
 const Routes = () => {
   const context = useContext(AuthContext);
-  console.log(context);
 
   //check token expires time on private routes
   const isTokenValid = () => {
@@ -30,7 +28,6 @@ const Routes = () => {
   return (
     <Router>
       <PrivateRoute path="/app/profile" component={Profile} />
-      <PasswordReset path="/app/passwordreset/:token" />
       <Auth path="/app/login" />
     </Router>
   );

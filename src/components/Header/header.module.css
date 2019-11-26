@@ -1,0 +1,101 @@
+.header_link:hover {
+  border-bottom: 1px solid red;
+}
+
+.header_link_active {
+  border-bottom: 1px solid red;
+}
+
+.header_link {
+  padding: 5px;
+  margin: 5px;
+  text-decoration: none;
+  color: black;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-bottom: lightgrey 0.5px dotted;
+}
+
+.right_header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 33%;
+}
+
+.left_header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 33%;
+}
+
+.login_button {
+  border: 1px solid blue;
+  padding: 5px;
+  margin: 5px;
+  text-decoration: none;
+  color: black;
+  border-radius: 5px;
+}
+
+.login_button_active {
+  color: white;
+  background-color: blue;
+}
+
+.login_button:hover {
+  color: white;
+  background-color: blue;
+}
+
+.mid_header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 33%;
+}
+
+.searchbox {
+  padding-right: 10px;
+}
+
+.drop_down_wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.drop_down_wrapper > i {
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.drop_down {
+  position: absolute;
+  z-index: 1;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  background-color: white;
+}
+
+.drop_down_link {
+  text-align: center;
+  width: 10vh;
+  padding: 5px;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+}
+
+.drop_down_link:hover {
+  color: white;
+  background-color: blue;
+}

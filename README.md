@@ -5,9 +5,10 @@
 -firebase authentication
 -save user to global storage
 -Global state with context
--SEO 
+-SEO
 -Google analytics
 -Search with Algolia
--Posts 
+-Posts
 -Tags
 -Netlify CMS
+-display user gravatar in header

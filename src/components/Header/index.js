@@ -5,6 +5,7 @@ import { Link } from 'gatsby';
 import Search from '../Search';
 import AuthContext from '../../utils/auth_context';
 import { navigate } from 'gatsby';
+import { MdAccountCircle } from 'react-icons/md';
 
 const Header = () => {
   const [menu, toggleMenu] = useState(false);
@@ -16,6 +17,11 @@ const Header = () => {
     } else {
       toggleMenu(true);
     }
+  };
+
+  const logOut = () => {
+    navigate('/');
+    setTimeout(() => context.LogOut(), 800);
   };
 
   return (
@@ -59,24 +65,26 @@ const Header = () => {
             Login
           </Link>
         )}
+
         {context.state.isAuthenticated && (
           <div className={styles.drop_down_wrapper}>
-            <i onClick={menuHandler} className="material-icons">
-              account_circle
-            </i>
-            {/* <button>Button1</button> */}
+            {context.state.user.photo ? (
+              <img
+                src={context.state.user.photo}
+                onClick={menuHandler}
+                className={styles.header_photo}
+                alt="Not Found"
+              />
+            ) : (
+              <MdAccountCircle className={styles.header_photo} onClick={menuHandler} />
+            )}
+
             {menu && (
               <div className={styles.drop_down}>
                 <div onClick={() => navigate('/app/profile')} className={styles.drop_down_link}>
                   Profile
                 </div>
-                <div
-                  onClick={() => {
-                    navigate('/');
-                    setTimeout(() => context.LogOut(), 400);
-                  }}
-                  className={styles.drop_down_link}
-                >
+                <div onClick={logOut} className={styles.drop_down_link}>
                   Logout
                 </div>
               </div>

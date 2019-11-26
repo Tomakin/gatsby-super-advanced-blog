@@ -35,68 +35,22 @@ const Auth = () => {
 
   const saveProfile = authResult => {
     console.log(authResult);
+
     let provider = authResult.additionalUserInfo.providerId;
-    console.log(provider);
+    let email = authResult.user.email;
+    let username = authResult.user.displayName;
+    let id = authResult.user.uid;
+    let photo = authResult.user.photoURL;
 
-    if (provider === 'password') {
-      let email = authResult.user.email;
-      let username = authResult.user.displayName;
-      let id = authResult.user.uid;
+    let data = {
+      email,
+      username,
+      id,
+      provider,
+      photo
+    };
 
-      let data = {
-        email,
-        username,
-        id,
-        provider
-      };
-
-      sendProfiletoContext(data);
-    }
-
-    if (provider === 'google.com') {
-      let email = authResult.additionalUserInfo.profile.email;
-      let username = authResult.additionalUserInfo.profile.name;
-      let id = authResult.additionalUserInfo.profile.id;
-
-      let data = {
-        email,
-        username,
-        id,
-        provider
-      };
-
-      sendProfiletoContext(data);
-    }
-
-    if (provider === 'github.com') {
-      let email = authResult.additionalUserInfo.profile.email;
-      let username = authResult.additionalUserInfo.username;
-      let id = authResult.additionalUserInfo.profile.id;
-
-      let data = {
-        email,
-        username,
-        id,
-        provider
-      };
-
-      sendProfiletoContext(data);
-    }
-
-    if (provider === 'facebook.com') {
-      let email = authResult.additionalUserInfo.profile.email;
-      let username = authResult.additionalUserInfo.name;
-      let id = authResult.additionalUserInfo.profile.id;
-
-      let data = {
-        email,
-        username,
-        id,
-        provider
-      };
-
-      sendProfiletoContext(data);
-    }
+    sendProfiletoContext(data);
   };
 
   return (
